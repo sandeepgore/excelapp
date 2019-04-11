@@ -2,7 +2,7 @@ const XLSX = require('xlsx')
 const _ = require('lodash')
 const { saveAs } = require('file-saver')
 const fs = require('fs')
-const http=require('http')
+const http = require('http')
 //console.log(http)
 
 
@@ -106,7 +106,7 @@ const createDupandUniq = (workbook) => {
 
         var wopts = { bookType: 'xlsx', bookSST: false, type: 'array' }
 
-         var wbout = XLSX.write(workbook, wopts)
+        var wbout = XLSX.write(workbook, wopts)
         // XLSX.writeFile(wb,filename)
         wb1 = wb
         // /* the saveAs call downloads a file on the local machine */
@@ -118,4 +118,4 @@ const createDupandUniq = (workbook) => {
 
 }
 
-module.exports = {createDupandUniq}
+module.exports = { createDupandUniq }

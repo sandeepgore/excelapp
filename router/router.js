@@ -2,7 +2,7 @@ const express = require('express')
 const multer = require('multer')
 const XLSX = require('xlsx')
 
-const { createDupandUniq, wb1 } = require('./app')
+const { createDupandUniq } = require('../js/app')
 
 const router = new express.Router()
 
@@ -21,11 +21,11 @@ router.post('/upload', upload.single('excel'), async (req, res) => {
         const buffer = await req.file.buffer
 
         const workbook = XLSX.read(buffer, { type: "buffer" })
-        const  wb = await createDupandUniq(workbook)
+        const wb = await createDupandUniq(workbook)
         // console.log(wb)
-    
-        XLSX.writeFile(wb, 'main.xlsx')
-        res.download('main.xlsx')
+
+        XLSX.writeFile(wb, 'dup&uniqkey.xlsx')
+        res.download('dup&uniqkey.xlsx')
 
         //res.send("ok")
     } catch (error) {
